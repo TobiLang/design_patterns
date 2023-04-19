@@ -65,7 +65,7 @@ fail_under = 80
 
 [tool.mypy]
 python_version = '3.10'
-files = 'src/chatgpt'
+files = 'src/patterns'
 show_error_codes = true
 strict = true
 ignore_missing_imports = true

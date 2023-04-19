@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Any
+
 
 # pylint: disable=too-few-public-methods
 class Singleton:
@@ -9,7 +11,8 @@ class Singleton:
 
     _instance = None
 
-    def __new__(cls, *args, **kwargs) -> Singleton:
+    @classmethod
+    def __new__(cls, *args: Any, **kwargs: Any) -> Singleton:
         """
         Implement the Singleton pattern. Only create a new object in case it does not already exist.
 

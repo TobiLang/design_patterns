@@ -1,6 +1,6 @@
 """Test singleton module."""
 
-from singleton.singleton import Singleton
+from patterns.singleton.singleton import Singleton
 
 
 # pylint: disable=too-few-public-methods
