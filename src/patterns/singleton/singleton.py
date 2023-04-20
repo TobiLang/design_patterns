@@ -1,25 +1,30 @@
-"""Class realising the Singleton design pattern."""
+"""Class realizing the Singleton design pattern."""
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Optional
 
 
 # pylint: disable=too-few-public-methods
 class Singleton:
-    """Class realising the Singleton design pattern."""
+    """Class realizing the Singleton design pattern."""
 
-    _instance = None
+    _singleton: Optional[Singleton] = None
+
+    def __init__(self) -> None:
+        """
+        Make sure that the constructor cannot be called from outside the class.
+        """
+        raise RuntimeError("Call get_instance() instead")
 
     @classmethod
-    def __new__(cls, *args: Any, **kwargs: Any) -> Singleton:
+    def get_instance(cls) -> Singleton:
         """
-        Implement the Singleton pattern. Only create a new object in case it does not already exist.
+        Create and return the singleton instance.
 
-        Args:
-            *args: Positional arguments
-            **kwargs: Keyword arguments
+        Returns:
+            Singleton: Instance of the Singleton class
         """
-        if cls._instance is None:
-            cls._instance = super().__new__(cls, *args, **kwargs)
-        return cls._instance
+        if cls._singleton is None:
+            cls._singleton = cls.__new__(cls)
+        return cls._singleton
