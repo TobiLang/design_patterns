@@ -1,4 +1,8 @@
-"""Decorators for text formatting."""
+"""
+Decorators for text formatting.
+Skipping the abstract base class for simplicity.
+"""
+
 from typing import Callable
 
 
