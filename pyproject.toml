@@ -84,7 +84,7 @@ ignore = 'D200,D202,D203,D205,D212,D400,D401,D404,D406,D407,D408,D409,D413'
 [tool.pycln]
 all = true
 
-[tool.pylint]
+[tool.pylint.messages_control]
 max-line-length = 120
 disable = ['W0511']
 good-names = ['db', 'ex']
