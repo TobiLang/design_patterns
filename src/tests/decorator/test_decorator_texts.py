@@ -16,10 +16,10 @@ class TextDecorator:
         """
 
         @BoldDecorator
-        def greet(name: str) -> str:
+        def to_be_decorated(name: str) -> str:
             return f"Hello, {name}!"
 
-        formatted_greeting = greet("John")
+        formatted_greeting = to_be_decorated("John")
         assert formatted_greeting == "<b>Hello, John!</b>"
 
     @staticmethod
@@ -32,8 +32,8 @@ class TextDecorator:
         """
 
         @ItalicDecorator
-        def greet(name: str) -> str:
+        def to_be_decorated(name: str) -> str:
             return f"Hello, {name}!"
 
-        formatted_greeting = greet("John")
+        formatted_greeting = to_be_decorated("John")
         assert formatted_greeting == "<i>Hello, John!</i>"
