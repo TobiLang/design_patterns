@@ -2,6 +2,9 @@
 
 Showcasing the 23 classic GoF design patterns in Python.
 
+This is the code repository for my Design Patterns series on Medium: 
+[Software Design Patterns - An Introduction](https://medium.com/@tobiaslang/software-design-patterns-an-introduction-7fb3f9e845cd).
+
 ## Setup
 
 After forking the repository, setup all necessary requirements and pre-commit hooks locally:
@@ -9,12 +12,4 @@ After forking the repository, setup all necessary requirements and pre-commit ho
 ```bash
 poetry install
 poetry run pre-commit install
-```
-
-## Generating UML
-
-Pyreverse will generate UML diagrams of the classes written in Python:
-
-```bash
-pyreverse -o png <path_to_src>
 ```
