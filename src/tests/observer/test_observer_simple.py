@@ -1,9 +1,9 @@
 """Test observer module."""
-from patterns.observer.observer import ConcreteObserver, ConcreteSubject
+from patterns.observer.observer_simple import ConcreteObserver, ConcreteSubject
 
 
 # pylint: disable=too-few-public-methods
-class TestObserver:
+class TestObserverSimple:
     """Test observer module."""
 
     @staticmethod

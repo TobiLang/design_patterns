@@ -1,57 +1,6 @@
 """Observer Design Pattern."""
-from abc import ABC, abstractmethod
-from typing import Optional
 
-
-# pylint: disable=too-few-public-methods
-class Observer(ABC):
-    """
-    The Observer interface declares the update method, used by subjects.
-    """
-
-    @abstractmethod
-    def update(self, data: str) -> None:
-        """
-        Receive update from subject.
-
-        Args:
-            data: String data from subject.
-
-        Returns:
-            None
-        """
-
-
-# pylint: disable=too-few-public-methods
-class ConcreteObserver(Observer):
-    """
-    Concrete Observers react to the updates issued by the Subject they had been attached to.
-    """
-
-    def __init__(self, name: str) -> None:
-        """
-        Initialize a new observer.
-
-        For the sake of simplicity, the Subject's state is stored.
-
-        Args:
-            name: Name of the observer (for logging purposes).
-        """
-        self._name = name
-        self.state: Optional[str] = None
-
-    def update(self, data: str) -> None:
-        """
-        Receive update from subject.
-
-        Args:
-            data: String data from subject.
-
-        Returns:
-            None
-        """
-        self.state = data
-        print(f"{self._name} received data: {data}")
+from typing import Callable, List, Optional
 
 
 class Observable:
@@ -63,26 +12,26 @@ class Observable:
         """
         The list of observers. We can have multiple observers listening to.
         """
-        self._observers = []
+        self._observers: List[Callable[[str], None]] = []
 
-    def register_observer(self, observer: Observer) -> None:
+    def register_observer(self, observer: Callable[[str], None]) -> None:
         """
         Attach an observer to the subject.
 
         Args:
-            observer: A concrete observer to attach.
+            observer: An observer function to attach.
 
         Returns:
             None
         """
         self._observers.append(observer)
 
-    def unregister_observer(self, observer: Observer) -> None:
+    def unregister_observer(self, observer: Callable[[str], None]) -> None:
         """
         Remove an observer from the subject.
 
         Args:
-          observer: A concrete observer to detach.
+          observer: An observer function to detach.
 
         Returns:
             None
@@ -100,9 +49,23 @@ class Observable:
             None
         """
         for observer in self._observers:
-            observer.update(data)
+            observer(data)
+
+    def observer(self, func: Callable[[str], None]) -> Callable[[str], None]:
+        """
+        Decorator to register a function as an observer.
+
+        Args:
+            func: Function to register as an observer.
+
+        Returns:
+            Function: The same function that was passed as an argument.
+        """
+        self.register_observer(func)
+        return func
 
 
+# pylint: disable=duplicate-code
 class ConcreteSubject(Observable):
     """
     The Subject owns some important state and notifies observers when the state changes.
