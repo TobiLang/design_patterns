@@ -1,0 +1,1 @@
+"""Test Observer Design Pattern."""
