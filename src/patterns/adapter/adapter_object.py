@@ -1,26 +1,28 @@
 """Adapter pattern module."""
 
+from abc import ABC, abstractmethod
+
 
 # pylint: disable=too-few-public-methods
-class Target:
+class Target(ABC):
     """
-    The Target is the interface that our client code understands.
+    The Target defines the interface used and expected by the client.
     """
 
+    @abstractmethod
     def request(self) -> str:
         """
-        The default target's behavior.
+        Defines the interface used by the client.
 
         Returns:
             str: The expected result.
         """
-        return "Target: The default target's behavior."
 
 
 # pylint: disable=too-few-public-methods
 class Adaptee:
     """
-    The Adaptee is the class we want to use, but its interface is incompatible with the existing client code.
+    The Adaptee contains some useful behavior, but its interface is incompatible with the existing client code.
     """
 
     def specific_request(self) -> str:
@@ -34,12 +36,19 @@ class Adaptee:
 
 
 # pylint: disable=too-few-public-methods
-class Adapter(Target, Adaptee):
+class Adapter(Target):
     """
     The Adapter makes the Adaptee's interface compatible with the Target's interface.
-
-    It inherits from both the Target and the Adaptee classes.
     """
+
+    def __init__(self, adaptee: Adaptee) -> None:
+        """
+        Initialize the Adapter with the adaptee class to wrap.
+
+        Args:
+            adaptee: The adaptee class to wrap.
+        """
+        self.adaptee = adaptee
 
     def request(self) -> str:
         """
@@ -48,4 +57,4 @@ class Adapter(Target, Adaptee):
         Returns:
             str: The expected result.
         """
-        return self.specific_request()
+        return self.adaptee.specific_request()

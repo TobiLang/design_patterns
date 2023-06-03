@@ -1,8 +1,8 @@
 """Test adapter module."""
-from patterns.adapter.adapter_class import Adapter, Target
+from patterns.adapter.adapter_class import Adaptee, Adapter, Target
 
 
-class TestAdapterClass:
+class TestAdapterObject:
     """Test adapter module."""
 
     @staticmethod
@@ -20,13 +20,14 @@ class TestAdapterClass:
 
     def test_adapter(self) -> None:
         """
-        Test Adapter via Class.
+        Test Adapter via Object.
 
         Returns:
             None
         """
 
-        adapter = Adapter()
+        adaptee = Adaptee()
+        adapter = Adapter(adaptee)
 
         result = self.client_code(adapter)
         assert result == "Specific behavior of the Adaptee."
