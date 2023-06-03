@@ -23,7 +23,8 @@ class Adaptee:
     The Adaptee is the class we want to use, but its interface is incompatible with the existing client code.
     """
 
-    def specific_request(self) -> str:
+    @staticmethod
+    def specific_request() -> str:
         """
         Defines the specific behavior of the Adaptee.
 

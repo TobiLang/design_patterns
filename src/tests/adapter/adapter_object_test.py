@@ -1,5 +1,5 @@
 """Test adapter module."""
-from patterns.adapter.adapter_class import Adaptee, Adapter, Target
+from patterns.adapter.adapter_object import Adaptee, Adapter, Target
 
 
 class TestAdapterObject:
