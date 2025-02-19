@@ -1,0 +1,1 @@
+"""Test Flyweight Design Pattern."""
