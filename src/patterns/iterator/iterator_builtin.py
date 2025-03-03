@@ -76,10 +76,10 @@ class ConcreteIterator(Iterator):
 # Example usage
 iterable = ConcreteIterable(["Apple", "Banana", "Cherry", "Mango"])
 
-print("Iterating over the objects and removing 'Banana':")
+print("Iterating over the objects:")
 for element in iter(iterable):
     print(f"  Current element: {element}")
 
-print("\nIterating over the objects again:")
-for element in iter(iterable):
+print("Iterating over the objects without explicitly using iter:")
+for element in iterable:
     print(f"  Current element: {element}")
