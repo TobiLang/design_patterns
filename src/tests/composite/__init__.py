@@ -1,0 +1,1 @@
+"""Test Composite Design Pattern."""
