@@ -1,0 +1,1 @@
+"""Test Facade Design Pattern."""
