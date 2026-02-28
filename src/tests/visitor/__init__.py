@@ -1,0 +1,1 @@
+"""Test Visitor Design Pattern."""
