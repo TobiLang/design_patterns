@@ -1,0 +1,1 @@
+"""Test Strategy Design Pattern."""
