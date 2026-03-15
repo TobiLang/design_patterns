@@ -1,4 +1,4 @@
-"""Visitor module."""
+"""Strategy module."""
 
 import bz2
 import zlib
